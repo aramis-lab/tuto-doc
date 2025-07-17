@@ -3,7 +3,7 @@ Read the Docs
 
 Let's get straight to the point. To deploy your documentation with `Read the Docs <https://about.readthedocs.com/>`_:
 
-1. Create a ``.readthedocs.yaml`` at the root of your project, on the ``main`` branch (no need to
+1. Create a ``.readthedocs.yaml`` at the root of your project on the ``main`` branch (no need to
    do it here, there is already one). This file will tell Read the Docs what to do to build the
    documentation.
 
@@ -44,34 +44,56 @@ And, here we go! Let's just wait a few minutes that Read the Docs deploy the web
 
 Once on your website, on the bottom right, click on the green button **latest**. These are the
 available versions of our documentation. Currently, the only version available is *latest*, which is the latest
-version on our default branch. We would like to have several versions available:
+version on our default branch (``main`` here).
 
-- *latest*, with our latest changes on ``main``;
-- *stable*, corresponding to the last stable version;
-- an historic of the versions.
+Versioning
+----------
 
-In Git, the notion of "version" of a project is represented via `tags <https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags>`_.
-You can go to any branch of your project, to any commit, and create a tag saying "this is version xxx".
-For example:
+To test Read the Docs versioning functionalities, we will create different versions of our project on the
+``main`` branch:
 
-1. Checkout to ``main``
-2. Run the command ``git tag v0.2.0``
-3. Then, checkout to ``doc``
-4. Run ``git tag v0.1.0``
-5. Then, ``git push origin --tag``
+.. code-block:: bash
 
-You have just created 2 tags, one from ``main`` and one from ``doc``.
+    echo "\nVersion 0.1.0" >> index.rst
+    git add .
+    git commit -m "version 0.1.0"
+    git tag v0.1.0
+    ed -s index.rst <<< $'$d\n$a\nVersion 0.2.0\n.\nwq'
+    git add .
+    git commit -m "version 0.2.0"
+    git tag v0.2.0
+    ed -s index.rst <<< $'$d\n$a\nVersion latest\n.\nwq'
+    git add .
+    git commit -m "Latest version"
+    git push
+    git push --tags
+
+Don't worry about these commands, they just add three dummy commits that will simulate
+three different versions of our projects. The first commit is tagged "v0.1.0", and the
+second is tagged "v0.2.0". The last one doesn't have tag, it represents the latest version of our projects that
+is not stable yet.
+
+Now, we would like to see all these versions in our public documentation.
 
 If you come back to the Read the Docs dashboard, you will see that a new version of your project appeared: *stable*,
-which corresponds to the documentation build from your **latest version** (``v0.2.0`` here).
+which corresponds to the documentation build from your **latest tagged version** (``v0.2.0`` here).
 
-If you go to your documentation, you can see that you have now two versions available: *stable* and *latest*.
+Then, in the Read the Docs dashboard, go to **Settings > Default version** and choose "stable".
 
-To add the historic of the versions:
+And, once the deployment is finished, if you go to your documentation website (``https://neuroplot-{github-username}.readthedocs.io/``),
+you can see that you have now two versions available on the bottom right: *stable* and *latest*. By default, we now
+land on the *stable* version.
 
-1. in the Read the Docs dashboard, click on **Add version**;
-2. select the version you want to have in the history;
-3. check the box **Active**;
-4. click on **Update version**.
+Finally, to add other versions:
 
-Finally, give Read the Docs time to build the old versions, and go to your online documentation to see the result! 
+1. In the Read the Docs dashboard, click on **Add version**.
+2. Select the versions you want to deploy. A version can be either a tag or a branch, but make
+   sur that this tag or branch have a ``.readthedocs.yaml``. Here we will select the tag ``v0.1.0`` and the branch ``doc``.
+3. Check the box **Active**.
+4. Click on **Update version**.
+
+Once again, give Read the Docs time to build these versions, and go to your online documentation to see the result!
+
+.. note::
+    With Read the Docs, changes can take some time to appear on your documentation. Be patient!
+    Cleaning your browser's cache and history can help!

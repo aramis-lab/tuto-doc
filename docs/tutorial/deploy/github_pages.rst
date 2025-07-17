@@ -68,10 +68,15 @@ Well, here is the **workflow** associated to this action:
 In your forked repository, you already have this workflow in ``.github/workflows/build_and_deploy.yml`` of your ``main``
 branch, so no need to add it.
 
-To trigger the deployment, you may need to push something on your ``main`` branch (for example
-merge the work you just did on the ``tutorial`` branch).
+Nevertheless, workflows may not be activated in a forked repository. To activate them, in your forked GitHub repo,
+go to **Actions**. If you have the message "Workflows aren't being run on this forked repository", click on
+**I understand my workflows, go ahead and enable them**.
 
-Then, your documentation should be available at ``https://<github-username>.github.io/tuto-doc``!
+Lastly, to trigger the deployment, you may need to push something on your ``main`` branch. So, just push
+an empty commit with ``git commit --allow-empty -m "Trigger deployment"`` and ``git push``.
+
+The deployment can take some time, but once it is finished,
+your documentation should be available at ``https://<github-username>.github.io/tuto-doc``!
 
 .. raw:: html
 
