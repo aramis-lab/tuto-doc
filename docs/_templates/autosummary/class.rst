@@ -4,6 +4,5 @@
 .. currentmodule:: {{ module }}
 
 .. autoclass:: {{ objname }}
-   :members:
 
-.. include:: {{fullname}}.examples
+    :members:

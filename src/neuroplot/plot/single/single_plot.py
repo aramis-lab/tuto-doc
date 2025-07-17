@@ -16,8 +16,6 @@ class SinglePlot:
 
     The title of the figure can be changed between plots using :py:meth:`set_title`.
 
-    Just a random reference to :footcite:t:`Harris:2020`. And another to Matplotlib\\ :footcite:`Hunter:2007`.
-
     Parameters
     ----------
     axes : int | Sequence[int] | None, default=None
@@ -30,7 +28,7 @@ class SinglePlot:
         Potential transforms to apply to the image before plotting. See :py:mod:`neuroplot.transforms`.
 
         .. important::
-            No matter the transforms passed, the image will first be reoriented to the :term:`RAS+` coordinate system.
+            No matter the transforms passed, the image will first be reoriented to the **RAS+** coordinate system.
 
     figsize : tuple[float, float] | None, default=None
         The size of the figure. See :py:func:`matplotlib.pyplot.figure` for more details.
@@ -65,10 +63,6 @@ class SinglePlot:
     --------
     :py:class:`neuroplot.plot.multiple.MultiplePlot`
         To plot multiple neuroimages in a grid of subplots.
-
-    References
-    ----------
-    .. footbibliography::
     """
 
     def __init__(
@@ -158,7 +152,7 @@ class SinglePlot:
             axes = [axes]
 
         if slices is None:
-            n_slices = len(axes)
+            n_slices = 3
         elif isinstance(slices, int):
             n_slices = 1
             slices = [slices]

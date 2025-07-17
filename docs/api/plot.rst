@@ -11,12 +11,12 @@
 .. currentmodule:: neuroplot.plot.single
 
 .. autosummary::
-   :toctree: generated/
-   :nosignatures:
-   :template: autosummary/class.rst
+    :toctree: generated/
+    :nosignatures:
+    :template: autosummary/class.rst
 
-   SinglePlot
-   GIF
+    SinglePlot
+    GIF
 
 ``neuroplot.plot.multiple``
 ---------------------------
@@ -26,9 +26,8 @@
 .. currentmodule:: neuroplot.plot.multiple
 
 .. autosummary::
-   :toctree: generated/
-   :nosignatures:
-   :template: autosummary/class.rst
+    :toctree: generated/
+    :nosignatures:
+    :template: autosummary/class.rst
 
-   MultiplePlot
-
+    MultiplePlot
