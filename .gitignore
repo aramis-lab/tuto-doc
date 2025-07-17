@@ -6,3 +6,7 @@ __pycache__
 .vscode
 .env
 .coverage
+docs/_build/*
+docs/_build
+docs/api/generated/*
+docs/api/generated
