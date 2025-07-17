@@ -95,5 +95,4 @@ Finally, to add other versions:
 Once again, give Read the Docs time to build these versions, and go to your online documentation to see the result!
 
 .. note::
-    With Read the Docs, changes can take some time to appear on your documentation. Be patient!
-    Cleaning your browser's cache and history can help!
+    With Read the Docs, changes can take some time to be actually deployed. Be patient!
