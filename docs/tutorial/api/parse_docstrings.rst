@@ -233,7 +233,7 @@ Build your documentation and watch the magic happen!
 
 .. important::
     This functionality only works with **external libraries whose documentations
-    are built with Sphinx**. Hopefully, this is the case for most of the common
+    are built with Sphinx**. Fortunately, this is the case for most of the common
     Python libraries!
 
 ``viewcode`` extension
