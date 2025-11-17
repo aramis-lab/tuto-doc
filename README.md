@@ -17,15 +17,19 @@ Three key points:
 - As `doc` contains the checkpoints in a sequential way, **commit history is essential in `doc`**. When you make changes to this branch, take care to preserve the story as much as possible.
 - In the tutorial, we refer to checkpoints via commit hashes of the `doc` branch. So, **if you change the history of `doc`, you must update the hashes in the tutorial** (`docs/tutorial` on `main`).
 
-### If you want add a new step to the tutorial
+### To modify the tutorial (e.g. a typo)
+
+Just make the changes in the relevant page in `docs/tutorial`, and push on `main`.
+
+### To add a new step to the tutorial
 
 1. Do the step on `doc` to add a new checkpoint corresponding to this step.
 2. Merge `doc` in `main`. It will update the final result of the tutorial, that now
 takes into account the new step.
-3. Update `docs/tutorial` on `main` to add a page describing the new step.
+3. Update `docs/tutorial` on `main` to add a page describing the new step. Then, don't forget to mention your new page in a `index.rst` page (e.g. `docs/tutorial/index.rst`) to make your page appear in the Table of Content and the navigation bar.
 4. Push `doc` and `main`. Here you don't change the history, so a simple `git pull` + `git push` is enough.
 
-### If you want to make a modification to the Python code
+### To make a modification to the Python code
 
 1. Make your changes on `code`, then rebase `doc` on `code`. The history of code will then be rewritten, taking into account the modifications made on the initial code.
 2. Use `git push --force` to also rewrite the history of `origin/doc`.
@@ -34,7 +38,7 @@ takes into account the new step.
 history of `doc` was rewritten.
 5. Push `main` and `code` (here a simple `git pull` + `git push` is enough).
 
-### If you want to modify a checkpoint
+### To modify a checkpoint
 
 Try not to, but if you really need to modify an old checkpoint on `doc`:
 
