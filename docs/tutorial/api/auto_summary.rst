@@ -8,7 +8,7 @@ To recap:
   documentation pages;
 - but we don't want to create all the pages manually.
 
-Hopefully, Sphinx extension `autosummary <https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html>`_
+Fortunately, Sphinx extension `autosummary <https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html>`_
 can take care of this:
 
 1. Activate the extension in your ``docs/conf.py``:
